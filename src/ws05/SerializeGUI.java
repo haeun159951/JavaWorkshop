@@ -1,3 +1,4 @@
+
 package ws05;
 
 import javax.swing.*;
@@ -11,16 +12,16 @@ import java.util.ArrayList;
 public class SerializeGUI extends JFrame {
 
     private static JLabel fname, lname, sid, cname;
-    private static JButton submitBtn;
+    private static JButton addBtn, submitBtn;
     private static JTextField fnameText, lnameText, sidText, courseText;
 
-    private static ArrayList<Student> students;
+    private static ArrayList<Student> students = new ArrayList<Student>();
     private static ArrayList<String> courseList;
 
     public SerializeGUI() {
 
         super("Testing Serialize");
-        setLayout(new FlowLayout());
+        setLayout(new GridLayout(6, 5));
 
         //first name
         fname = new JLabel("Enter First name: ");
@@ -46,6 +47,15 @@ public class SerializeGUI extends JFrame {
         courseText = new JTextField(20);
         add(courseText);
 
+        // add button
+        addBtn = new JButton("Add Student");
+        add(addBtn);
+        setVisible(true);
+
+        //event - add
+        AddHandler addHandler = new AddHandler();
+        addBtn.addActionListener(addHandler);
+
         // submit button
         submitBtn = new JButton("Submit");
         add(submitBtn);
@@ -59,6 +69,7 @@ public class SerializeGUI extends JFrame {
     private void addStudent() {
         Student student = new Student();
         student.setStdId(Integer.parseInt(sidText.getText()));
+
         student.setFirstName(fnameText.getText());
         student.setLastName(lnameText.getText());
         String coursesInput = courseText.getText();
@@ -69,25 +80,41 @@ public class SerializeGUI extends JFrame {
         students.add(student);
     }
 
+    private void clear() {
+        sidText.setText("");
+        fnameText.setText("");
+        lnameText.setText("");
+        courseText.setText("");
+    }
 
-    private class SubmitHandler implements ActionListener
-    {
+    private class AddHandler implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                addStudent();
+                clear();
+                JOptionPane.showMessageDialog(SerializeGUI.this, String.format("Student data is added!"));
+            } catch (Throwable io) {
+                System.err.println(io);
+            }
+        }
+    }
+
+    private class SubmitHandler implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
                 FileOutputStream fos = new FileOutputStream("file.out");
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
-                addStudent();
                 oos.writeObject(students);
                 oos.flush();
                 fos.close();
+
             } catch (Throwable io) {
                 System.err.println(io);
             }
-
-            JOptionPane.showMessageDialog(SerializeGUI.this, String.format("Student data is submitted!"));// button
+            JOptionPane.showMessageDialog(SerializeGUI.this, String.format("Student data is saved!"));// button
         }
-
     }
 }
 

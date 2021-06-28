@@ -45,12 +45,11 @@ public class DeserializeGUI extends JFrame {
                         textArea.append("Student ID: " + students.get(i).getStdId() + "\n");
                         textArea.append("First name: " + students.get(i).getFirstName() + "\n");
                         textArea.append("Last name: " + students.get(i).getLastName() + "\n");
-                        textArea.append("Courses: " + students.get(i).getCourses() + "\n");
+                        textArea.append("Courses: " + students.get(i).getCourses() + "\n\n");
                     }
                 }
             } catch (IOException | ClassNotFoundException o) {
                 System.out.println(o);
-
             }
         }
     }
