@@ -23,7 +23,7 @@ public class DeserializeGUI extends JFrame {
         JScrollPane scrollPane= new JScrollPane(textArea);
 
         buttonPanel.add(desBtn);
-        add(buttonPanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.SOUTH);
         add(scrollPane, BorderLayout.CENTER);
 
         ReadBtnHandler desBtnHandler = new ReadBtnHandler();

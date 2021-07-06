@@ -4,7 +4,6 @@
 /*  Professor: Reza Khojasteh / JAC444NAA -  Workshop 4
 /*  Date: Jun 22, 2021
 /* ********************************************************************/
-
 package ws05;
 
 import java.io.Serializable;
@@ -15,7 +14,6 @@ public class Student implements Serializable {
     private String firstName;
     private String lastName;
     private ArrayList<String> courses = new ArrayList<>();
-
 
     Student() {
 
@@ -69,7 +67,5 @@ public class Student implements Serializable {
                 "lastName: " + lastName + '\n' +
                 "courses: " + courses + '\n';
     }
-
-
 }
 

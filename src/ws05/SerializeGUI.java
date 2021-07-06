@@ -1,4 +1,3 @@
-
 package ws05;
 
 import javax.swing.*;
@@ -20,7 +19,7 @@ public class SerializeGUI extends JFrame {
 
     public SerializeGUI() {
 
-        super("Testing Serialize");
+        super("Serialize");
         setLayout(new GridLayout(6, 5));
 
         //first name
@@ -69,7 +68,6 @@ public class SerializeGUI extends JFrame {
     private void addStudent() {
         Student student = new Student();
         student.setStdId(Integer.parseInt(sidText.getText()));
-
         student.setFirstName(fnameText.getText());
         student.setLastName(lnameText.getText());
         String coursesInput = courseText.getText();
@@ -113,7 +111,7 @@ public class SerializeGUI extends JFrame {
             } catch (Throwable io) {
                 System.err.println(io);
             }
-            JOptionPane.showMessageDialog(SerializeGUI.this, String.format("Student data is saved!"));// button
+            JOptionPane.showMessageDialog(SerializeGUI.this, String.format("Student data is saved!"));
         }
     }
 }
