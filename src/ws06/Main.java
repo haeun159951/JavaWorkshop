@@ -2,35 +2,35 @@
 /*  Name: Ha Eun Kim
 /*  Student ID: 158007187
 /*  Professor: Reza Khojasteh / JAC444NAA -  Workshop 6
-/*  Date: Jun 12, 2021
+/*  Date: July 12, 2021
 /* ********************************************************************/
 
-package ws02_03;
+package ws06;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
 
 public class Main {
     public static void main(String[] args) {
 
         String str;
         int lineCount = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader("shapes.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("shapes.txt"))){
             while ((str = br.readLine()) != null) {
                 lineCount++;
             }
-
+            br.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
 
         System.out.println("------->JAC 444 Assignment 1<-------");
         System.out.println("------->Task 1 ... <-------");
         Shape[] shapes = new Shape[lineCount];
 
-        try (BufferedReader br = new BufferedReader(new FileReader("shapes.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("shapes.txt"))){
 
             int i = 0;
 
@@ -44,7 +44,7 @@ public class Main {
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
-                } else if (tokens[0].equals("Square") && tokens.length == 2) {
+                } else if (tokens[0].equals("Square") && tokens.length == 2) { ;
                     try {
                         shapes[i] = new Square(Double.parseDouble(tokens[1]));
                         i++;
@@ -92,7 +92,6 @@ public class Main {
         //TASK 2
         System.out.println("\n------->Task 2 ... <-------");
 
-        // getting max and min value for perimeter of circle and triangle
         double max = Double.MIN_VALUE;
         double min = Double.MAX_VALUE;
 
@@ -111,7 +110,6 @@ public class Main {
             }
         }
 
-        // loop the shapes array to check if there is max circle and min triangle, if there is, it makes null
         for(int i =0; i< shapes.length; i++){
             if(shapes[i] instanceof Circle && shapes[i].getPerimeter() == max){
                 shapes[i] = null;
@@ -121,7 +119,6 @@ public class Main {
             }
         }
 
-        // print all the shapes except null
         for (Shape shape : shapes) {
             if (shape != null) {
                 System.out.println(shape);
@@ -130,7 +127,7 @@ public class Main {
         }
 
 
-        // Task 3: Calculate and print the total perimeter of all parallelograms
+        //TASK Task 3: Calculate and print the total perimeter of all parallelograms
         // the total perimeter of all triangles.
         // For the sample input file, sample output could be:
 
@@ -148,6 +145,7 @@ public class Main {
 
         System.out.println("Total perimeter of Parallelogram is: "+ totalPerimeterParallelograms +
                 "\nTotal perimeter of Triangle is: "+ totalPerimeterTriangles);
+
 
     }
 
