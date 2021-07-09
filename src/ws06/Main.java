@@ -26,8 +26,6 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("------->JAC 444 Assignment 1<-------");
-        System.out.println("------->Task 1 ... <-------");
         Shape[] shapes = new Shape[lineCount];
 
         try (BufferedReader br = new BufferedReader(new FileReader("shapes.txt"))){
@@ -74,8 +72,8 @@ public class Main {
                     }
                 }
             }
-
-            System.out.println();
+//
+//            System.out.println();
             System.out.println(((i) + " shapes were created:"));
 
             for (Shape shape : shapes) {

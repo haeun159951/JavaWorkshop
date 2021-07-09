@@ -1,5 +1,6 @@
 package ws06;
 
+
 public class Circle implements Shape{
 
     private double radius;
