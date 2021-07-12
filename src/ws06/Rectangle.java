@@ -1,13 +1,13 @@
 package ws06;
 
-public class Rectangle implements Shape{
+public class Rectangle implements Shape {
 
     private double height;
     private double width;
     protected Area area = () -> getWidth() * getWidth();
 
     public Rectangle(double height, double width) throws ShapeException {
-        if (width > 0 && height > 0){
+        if (width > 0 && height > 0) {
             this.height = height;
             this.width = width;
         } else {
@@ -21,10 +21,9 @@ public class Rectangle implements Shape{
     }
 
     public void setHeight(double height) throws ShapeException {
-        if(height > 0){
+        if (height > 0) {
             this.height = height;
         }
-
         throw new ShapeException("Invalid side(s)!");
     }
 
@@ -33,7 +32,7 @@ public class Rectangle implements Shape{
     }
 
     public void setWidth(double width) throws ShapeException {
-        if(width > 0){
+        if (width > 0) {
             this.width = width;
         }
 
