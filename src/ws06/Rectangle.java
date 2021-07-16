@@ -6,10 +6,10 @@ public class Rectangle implements Shape {
     private double width;
     protected Area area = () -> getWidth() * getWidth();
 
-    public Rectangle(double height, double width) throws ShapeException {
+    public Rectangle(double width, double height) throws ShapeException {
         if (width > 0 && height > 0) {
-            this.height = height;
             this.width = width;
+            this.height = height;
         } else {
             throw new ShapeException("Invalid side!");
         }

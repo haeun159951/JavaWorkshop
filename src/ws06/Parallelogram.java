@@ -1,8 +1,8 @@
 package ws06;
 
 public class Parallelogram extends Rectangle {
-    public Parallelogram(double height, double width) throws ShapeException {
-        super(height, width);
+    public Parallelogram(double width, double height) throws ShapeException {
+        super(width, height);
     }
 
     @Override
