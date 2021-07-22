@@ -26,4 +26,41 @@ public class SharedAccount {
         this.balance = balance;
     }
 
+    public synchronized void deposit(double bal, String curr){
+        while(getBalance() != 0 && getCurrency().equals(curr)){
+            try{
+                System.out.println("You cannot deposit\n");
+                wait();
+            }catch(InterruptedException ie){
+                System.out.println(ie);
+            }
+        }
+
+        setCurrency(curr);
+        setBalance(getBalance() + bal);
+
+
+        System.out.println("Deposited amount: " +  bal + " " + curr);
+        System.out.println("Account Balance is now : " + getBalance() + " " + getCurrency() + ".\n");
+        notify();
+    }
+
+
+    public synchronized void withdraw(double bal){
+        while(getBalance() < bal){
+            try{
+                System.out.println("You don't have enough money to withdraw\n");
+                wait();
+            }catch(InterruptedException ie){
+                System.out.println(ie);
+            }
+        }
+
+        setBalance(getBalance() - bal);
+
+        System.out.println("Withdraw amount: " +  bal);
+        System.out.println("Account Balance is now : " + getBalance() + " " + getCurrency() + ".\n");
+        notify();
+    }
+
 }
