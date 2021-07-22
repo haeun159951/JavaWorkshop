@@ -1,4 +1,4 @@
-package ws08;
+package ws8;
 
 public class SharedAccount {
     private String currency;
@@ -27,17 +27,22 @@ public class SharedAccount {
     }
 
     public synchronized void deposit(double bal, String curr){
-        while(getBalance() != 0 && getCurrency().equals(curr)){
+        while(getBalance() != 0 && !getCurrency().equals(curr)){
             try{
-                System.out.println("You cannot deposit\n");
+                System.out.println("Currency is different for depositing money \n");
                 wait();
             }catch(InterruptedException ie){
                 System.out.println(ie);
             }
         }
 
-        setCurrency(curr);
-        setBalance(getBalance() + bal);
+        if(getCurrency() != curr){
+            setCurrency(curr);
+            setBalance(bal);
+        }else{
+            setCurrency(curr);
+            setBalance(getBalance() + bal);
+        }
 
 
         System.out.println("Deposited amount: " +  bal + " " + curr);
@@ -58,7 +63,7 @@ public class SharedAccount {
 
         setBalance(getBalance() - bal);
 
-        System.out.println("Withdraw amount: " +  bal);
+        System.out.println("Withdraw amount: " +  bal + " " + getCurrency());
         System.out.println("Account Balance is now : " + getBalance() + " " + getCurrency() + ".\n");
         notify();
     }
