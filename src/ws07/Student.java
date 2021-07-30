@@ -1,8 +1,8 @@
 /* ********************************************************************/
 /*  Name: Ha Eun Kim
 /*  Student ID: 158007187
-/*  Professor: Reza Khojasteh / JAC444NAA -  Workshop 7
-/*  Date: July 19, 2021
+/*  Professor: Reza Khojasteh / JAC444NAA -  Workshop 7 & 8
+/*  Date: July 19/26, 2021
 /* ********************************************************************/
 
 package ws07;
