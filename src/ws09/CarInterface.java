@@ -1,4 +1,8 @@
 package ws09;
 
-public class CarInterface {
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface CarInterface extends Remote {
+    String registerCar(Car car) throws RemoteException;
 }
