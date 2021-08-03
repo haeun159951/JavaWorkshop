@@ -1,8 +1,6 @@
-package ws09;
+package ws10;
 
 
-import java.net.*;
-import java.io.*;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;

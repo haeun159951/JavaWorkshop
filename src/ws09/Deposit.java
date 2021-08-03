@@ -1,4 +1,4 @@
-package ws08;
+package ws09;
 
 public class Deposit extends Thread {
     private final Account account;

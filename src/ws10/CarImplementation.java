@@ -1,4 +1,4 @@
-package ws09;
+package ws10;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

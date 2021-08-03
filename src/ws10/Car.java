@@ -1,4 +1,4 @@
-package ws09;
+package ws10;
 
 import java.io.Serializable;
 

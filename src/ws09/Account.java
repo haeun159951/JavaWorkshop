@@ -1,4 +1,4 @@
-package ws08;
+package ws09;
 
 enum Currency {
     Dollar, Euro, Pound

@@ -1,4 +1,4 @@
-package ws09;
+package ws10;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
