@@ -1,23 +1,25 @@
 package ws10;
 
-
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class CarServer {
-    //public CalculatorServer() throws RemoteException{}
-    public CarServer() throws RemoteException {
+
+    public CarServer() {
         try {
             CarInterface car = new CarImplementation();
-            Registry registry = LocateRegistry.getRegistry(8080);
-            Naming.rebind("rmi://localhost:8080/CarService", car);
-        }catch(Exception e) {
-            System.out.println("Trouble: "+e.getMessage());
+            Registry registry = LocateRegistry.createRegistry(1099);
+            registry.rebind("CarService", car);
+            System.out.println("Car Service bound in registry");
+        } catch (Exception e) {
+            System.out.println("Trouble: " + e.getMessage());
+            System.exit(1);
         }
     }
-    public static void main(String[] args) throws RemoteException{
+
+    public static void main(String[] args) throws RemoteException {
         new CarServer();
+        System.out.println("Car service is running");
     }
 }

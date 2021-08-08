@@ -38,7 +38,6 @@ public class Account {
         this.currency = curr;
         this.balance += bal;
 
-
         System.out.println("Deposited successful!: " + bal + " " + curr);
         System.out.println("Account Balance is now : " + getBalance() + " " + getCurrency() + "\n");
         notify();

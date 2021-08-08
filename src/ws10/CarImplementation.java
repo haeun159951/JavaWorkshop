@@ -12,4 +12,6 @@ public class CarImplementation extends UnicastRemoteObject implements CarInterfa
     public String registerCar(Car car) throws RemoteException {
         return car.hashCode()+"";
     }
+
+
 }

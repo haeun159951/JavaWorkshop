@@ -9,29 +9,22 @@ public class CarClient {
 
 
     public static void main(String[] args) {
-        System.out.println("Registration new car.");
         try {
-            CarInterface c = (CarInterface) Naming.lookup("rmi://localhost:8080/CarService");
+            System.out.println("Registration new car");
 
-        }catch (MalformedURLException murle) {
-            System.out.println();
-            System.out.println("MalformedURLException");
-            System.out.println(murle);
-        }
-        catch (RemoteException re) {
-            System.out.println();
-            System.out.println("RemoteException");
-            System.out.println(re);
-        }
-        catch (NotBoundException nbe) {
-            System.out.println();
-            System.out.println( "NotBoundException");
-            System.out.println(nbe);
-        }
-        catch (java.lang.ArithmeticException ae) {
-            System.out.println();
-            System.out.println( "java.lang.ArithmeticException");
-            System.out.println(ae);
+            Car car = new Car("Toyota", "Yellow", 160.7);
+
+            CarInterface c = (CarInterface) Naming.lookup("rmi://localhost:1099/CarService");
+
+            car.setPlate(c.registerCar(car));
+            System.out.println(car);
+
+        } catch (MalformedURLException murle) {
+            System.out.println(murle.getMessage());
+        } catch (RemoteException re) {
+            System.out.println(re.getMessage());
+        } catch (NotBoundException nbe) {
+            System.out.println(nbe.getMessage());
         }
 
     }
